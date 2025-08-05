@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OTP Verification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="box">
+        <h2>Enter OTP</h2>
+        <form action="/verify_otp" method="post">
+            <input type="text" name="otp" placeholder="6-digit OTP" required><br>
+            <button type="submit">Verify</button>
+        </form>
+        <p>(OTP is shown in terminal for simulation)</p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
+
